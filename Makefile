@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
-SOURCES = ft_printf.c
+SOURCES = ft_printf.c conversions.c utils.c
 
 OBJS = $(SOURCES:.c=.o)
 
