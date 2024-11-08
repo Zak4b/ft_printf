@@ -6,15 +6,15 @@
 /*   By: asene <asene@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:46:49 by asene             #+#    #+#             */
-/*   Updated: 2024/11/08 11:00:36 by asene            ###   ########.fr       */
+/*   Updated: 2024/11/08 11:41:56 by asene            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_hex(unsigned int n, char *base)
+int	ft_print_hex(unsigned long n, char *base)
 {
-	int			count;
+	int	count;
 
 	count = 0;
 	if (n >= 16)
@@ -25,8 +25,10 @@ int	ft_print_hex(unsigned int n, char *base)
 
 int	ft_put_pointer(void *adress)
 {
+	if (adress == NULL)
+		return (ft_putstr("(nil)"));
 	ft_putstr("0x");
-	return (2 + ft_print_hex((long)adress, HEX_BASE_LOWER));
+	return (2 + ft_print_hex((unsigned long)adress, HEX_BASE_LOWER));
 }
 
 int	ft_putnbr(int nb)

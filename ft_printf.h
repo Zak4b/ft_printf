@@ -6,7 +6,7 @@
 /*   By: asene <asene@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:46:23 by asene             #+#    #+#             */
-/*   Updated: 2024/11/08 10:59:45 by asene            ###   ########.fr       */
+/*   Updated: 2024/11/08 11:32:21 by asene            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	ft_putnbr(int nb);
-int	ft_print_hex(unsigned int n, char *base);
+int	ft_print_hex(unsigned long n, char *base);
 int	ft_put_pointer(void *adress);
 int	ft_put_unsigned(unsigned int nb);
 

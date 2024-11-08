@@ -12,7 +12,6 @@
 
 #include "ft_printf.h"
 
-
 int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
@@ -20,8 +19,10 @@ int	ft_putchar(char c)
 
 int	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
+	if (str == NULL)
+		return (ft_putstr("(null)"));
 	i = 0;
 	while (str[i])
 		i++;
