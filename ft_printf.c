@@ -6,7 +6,7 @@
 /*   By: asene <asene@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 15:19:56 by asene             #+#    #+#             */
-/*   Updated: 2024/11/07 20:13:28 by asene            ###   ########.fr       */
+/*   Updated: 2024/11/08 10:59:37 by asene            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 // cspdiuxX%
 static int	is_conversion(char c)
 {
-	const char	*specifiers;
-	int			i;
+	static const char	*specifiers = "cspdiuxX%";
+	int					i;
 
-	specifiers = "cspdiuxX%";
 	i = 0;
 	while (specifiers[i])
 	{
@@ -28,6 +27,7 @@ static int	is_conversion(char c)
 	}
 	return (0);
 }
+
 static int	handle_conversion(char **str, va_list args)
 {
 	int	count;
@@ -43,11 +43,11 @@ static int	handle_conversion(char **str, va_list args)
 	else if (**str == 'd' || **str == 'i')
 		count = ft_putnbr(va_arg(args, int));
 	else if (**str == 'u')
-		count = ft_putnbr((int)va_arg(args, unsigned int));
+		count = ft_put_unsigned((int)va_arg(args, unsigned int));
 	else if (**str == 'x')
-		count = ft_print_hex_lower(va_arg(args, int));
+		count = ft_print_hex(va_arg(args, unsigned int), HEX_BASE_LOWER);
 	else if (**str == 'X')
-		count = ft_print_hex_upper(va_arg(args, int));
+		count = ft_print_hex(va_arg(args, unsigned int), HEX_BASE_UPPER);
 	else if (**str == '%')
 		count = ft_putchar('%');
 	(*str)++;
