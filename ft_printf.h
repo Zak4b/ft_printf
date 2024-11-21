@@ -6,7 +6,7 @@
 /*   By: asene <asene@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:46:23 by asene             #+#    #+#             */
-/*   Updated: 2024/11/08 11:32:21 by asene            ###   ########.fr       */
+/*   Updated: 2024/11/21 15:25:10 by asene            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
+# include "libft/libft.h"
 
-# define HEX_BASE_LOWER "0123456789abcdef"
-# define HEX_BASE_UPPER "0123456789ABCDEF"
+# define HEX_L "0123456789abcdef"
+# define HEX_U "0123456789ABCDEF"
 
-int	ft_printf(const char *format, ...);
-
-int	ft_putchar(char c);
-int	ft_putstr(char *str);
-int	ft_putnbr(int nb);
-int	ft_print_hex(unsigned long n, char *base);
-int	ft_put_pointer(void *adress);
-int	ft_put_unsigned(unsigned int nb);
+int		ft_printf(const char *format, ...);
+char	*ft_printf_pointer(void *adress);
+char	*ft_ulltoa(unsigned long long int n);
+char	*ft_ulltoa_base(unsigned long long int n, char *base);
+char	*ft_lltoa(long long int n);
+char	*ft_lltoa_base(long long int n, char *base);
 
 #endif

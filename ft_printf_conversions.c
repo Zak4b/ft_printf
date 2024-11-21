@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                     :+:      :+:    :+:   */
+/*   ft_printf_conversions.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asene <asene@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 14:50:57 by asene             #+#    #+#             */
-/*   Updated: 2024/11/07 18:37:23 by asene            ###   ########.fr       */
+/*   Created: 2024/11/07 17:46:49 by asene             #+#    #+#             */
+/*   Updated: 2024/11/21 15:26:21 by asene            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+char	*ft_printf_pointer(void *adress)
 {
-	return (write(1, &c, 1));
-}
-
-int	ft_putstr(char *str)
-{
-	int	i;
-
-	if (str == NULL)
-		return (ft_putstr("(null)"));
-	i = 0;
-	while (str[i])
-		i++;
-	return (write(1, str++, i));
+	if (adress == NULL)
+		return (ft_strdup("(nil)"));
+	return (ft_strjoin("0x", ft_ulltoa_base((unsigned long)adress, HEX_L)));
 }
